@@ -2,7 +2,17 @@
 name = "atomiclock_spinlock"
 version = "0.1.0"
 edition = "2021"
+authors = ["Drew Crawford <drew@sealedabstract.com>"]
+rust-version = "1.78.0"
+description = "A simple spinlock"
+repository = "https://github.com/drewcrawford/atomiclock_spinlock"
+homepage = "https://sealedabstract.com/code/atomiclock_spinlock"
+license = "MIT OR Apache-2.0"
+keywords = ["lock","atomic","spinlock"]
+categories = ["concurrency","rust-patterns"]
+exclude = [".*"]
+
 
 [dependencies]
-atomiclock = {git = "ssh://gitea@gitea.mermaid-gecko.ts.net/Metropolis/atomiclock.git"}
-logwise = "~0"
+atomiclock = "0.1.0"
+logwise = "0.2.3"

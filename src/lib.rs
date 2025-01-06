@@ -1,4 +1,13 @@
-use std::ops::{Deref, DerefMut};
+/*!
+A simple spinlock.
+
+![logo](art/logo.png)
+
+This is a simple spinlock. It is not a fair lock, and it does not provide any way to sleep the current thread if the lock is not available.
+
+ */
+
+use core::ops::{Deref, DerefMut};
 use logwise::interval::PerfwarnInterval;
 
 /**
@@ -13,6 +22,7 @@ pub struct Lock<T> {
 A guard that provides access to the data in the lock.
  */
 #[derive(Debug)]
+#[must_use]
 pub struct Guard<'a, T>(atomiclock::Guard<'a, T>);
 
 impl <'a, T> Guard<'a, T> {
@@ -93,6 +103,13 @@ impl<T> Lock<T> {
             None => None,
             Some(guard) => Some(Guard(guard))
         }
+    }
+
+    /**
+    Consumes the lock and returns the inner data.
+*/
+    pub fn into_inner(self) -> T {
+        self.lock.into_inner()
     }
 
 

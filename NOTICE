@@ -1,0 +1,4 @@
+atomiclock_spinlock https://sealedabstract.com/code/atomiclock_spinlock
+A simple spinlock
+Copyright 2025 Drew Crawford.
+
